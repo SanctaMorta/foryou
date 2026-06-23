@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наше свидание ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="nav-buttons">
+    <button class="back-button" onclick="history.back()">
+        ⬅ Назад
+    </button>
+
+    <button class="home-button" onclick="window.location.href='index.html'">
+        🏠 На главную
+    </button>
+</div>
+
+    <h1>❤️ Наше свидание ❤️</h1>
+
+    <h2>🍕 Какие блюда ты любишь?</h2>
+
+    <div class="food-list">
+        <label><input type="checkbox"> Пицца 🍕</label><br><br>
+        <label><input type="checkbox"> Суши 🍣</label><br><br>
+        <label><input type="checkbox"> Паста 🍝</label><br><br>
+        <label><input type="checkbox"> Бургер 🍔</label><br><br>
+        <label><input type="checkbox"> Стейк 🥩</label><br><br>
+        <label><input type="checkbox"> Торт 🍰</label>
+    </div>
+
+    <h2>📅 Выбери дату</h2>
+    <input type="date" id="datePicker">
+
+    <br><br>
+
+    <h2>⏰ Выбери время</h2>
+    <input type="time" id="timePicker">
+
+    <br><br>
+
+    <h2>🌹 Какие цветы ты любишь?</h2>
+    <input
+        type="text"
+        id="flowers"
+        
+    >
+
+    <br><br>
+
+    <button class="confession-button" onclick="showResult()">
+        Подтвердить ❤️
+    </button>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+function showResult() {
+    const date = document.getElementById("datePicker").value;
+    const time = document.getElementById("timePicker").value;
+    const flowers = document.getElementById("flowers").value;
+
+    if (!date || !time) {
+        alert("Выбери дату и время ❤️");
+        return;
+    }
+
+    document.getElementById("result").innerHTML = `
+        <div style="margin-top:30px;">
+            <p class="special-message">
+                ❤️ Свидание назначено! ❤️
+            </p>
+
+            <p>
+                📅 <b>${date}</b><br><br>
+                ⏰ <b>${time}</b><br><br>
+                🌹 <b>${flowers || "Сюрприз 😊"}</b>
+            </p>
+
+            <p class="special-message">
+                Буду ждать тебя! 🥰
+            </p>
+        </div>
+    `;
+}
+</script>
+
+</body>
+</html>
